@@ -138,7 +138,7 @@ struct Config config_file()
                         size_t interface_length = strlen(interface_start);
                         config.interface = malloc(interface_length + 1);
                         if (config.interface == NULL) {
-                                perror("Memory allocation failed");
+                                perror("No if.");
                                 exit(EXIT_FAILURE);
                         }
                         strncpy(config.interface, interface_start,
@@ -254,9 +254,9 @@ void update_vpn()
         freeifaddrs(ifap);
 
         if (has_wg_interface)
-                printf(" %sVPN%s", GREEN, RESET);
+                printf(" %sVPN%s ", GREEN, RESET);
         else
-                printf(" %sNo VPN%s", RED, RESET);
+                printf(" %sNo VPN%s ", RED, RESET);
 }
 
 unsigned long long update_mem()
@@ -286,7 +286,7 @@ unsigned long long update_mem()
 
 void update_cpu_base_speed()
 {
-        int temp;
+        int temp = 0;
         size_t templen = sizeof(temp);
 
         int mib[5] = { CTL_HW, HW_CPUSPEED };
@@ -300,7 +300,7 @@ void update_cpu_base_speed()
 
 void update_cpu_avg_speed()
 {
-        uint64_t freq;
+        uint64_t freq = 0;
         size_t len = sizeof(freq);
         int mib[2] = { CTL_HW, HW_CPUSPEED };
 
@@ -485,22 +485,22 @@ int main(int argc, const char *argv[])
                         printf(" %sBat:%s %s ", GREEN, RESET, battery_percent);
                         printf("%s|%s", PURPLE, RESET);
                 }
+                if (config.show_vpn) {
+                        update_vpn();
+                        printf("%s|%s", PURPLE, RESET);
+                }
                 if (config.show_net) {
                         update_public_ip();
                         update_internal_ip(config);
                         printf(" %sIPs:%s %s ~ %s ", GREEN, RESET, public_ip,
                                internal_ip);
-                        printf("%s|%s", PURPLE, RESET);
-                }
-                if (config.show_vpn) {
-                        update_vpn();
                 }
 
                 fflush(stdout);
                 if (argc == 2)
                         if (strcmp("-1", argv[1]) >= 0)
                                 return 0;
-                usleep(3000000);
+                usleep(2000000);
         }
         return 0;
 }
