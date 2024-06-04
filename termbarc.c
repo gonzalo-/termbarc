@@ -286,7 +286,7 @@ unsigned long long update_mem()
 
 void update_cpu_base_speed()
 {
-        int temp;
+        int temp = 0;
         size_t templen = sizeof(temp);
 
         int mib[5] = { CTL_HW, HW_CPUSPEED };
@@ -300,7 +300,7 @@ void update_cpu_base_speed()
 
 void update_cpu_avg_speed()
 {
-        uint64_t freq;
+        uint64_t freq = 0;
         size_t len = sizeof(freq);
         int mib[2] = { CTL_HW, HW_CPUSPEED };
 
