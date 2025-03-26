@@ -1,0 +1,55 @@
+.\" Manpage for termbar.conf
+.Dd 2024-2025
+.Dt TERMBAR.CONF 5
+.Sh NAME
+.Nm termbar.conf
+.Nd configuration file for termbar
+.Sh DESCRIPTION
+The
+.Nm termbar.conf
+configuration file is located at
+.Pa ~/.termbar.conf
+and allows users to customize the information displayed by
+.Nm termbar
+. Each option in the configuration file can be set to "yes" or "no" to show or hide the corresponding information.
+.Sh CONFIGURATION OPTIONS
+.Bl -tag -width "."
+.It Sy logo
+Set a custom logo or name to display in the bar. Default is "termbar".
+.It Sy date
+Show the current date. Accepts "yes" or "no".
+.It Sy cpu
+Show CPU speed and temperature. Accepts "yes" or "no".
+.It Sy bat
+Show battery status. Accepts "yes" or "no".
+.It Sy mem
+Show free memory. Accepts "yes" or "no".
+.It Sy load
+Show load average. Accepts "yes" or "no".
+.It Sy net
+Show network information. Accepts "yes" or "no".
+.It Sy winid
+Show the current window ID. Accepts "yes" or "no".
+.It Sy hostname
+Show the hostname of the machine. Accepts "yes" or "no".
+.It Sy interface
+Specify the network interface to use for obtaining the internal IP address (e.g., "iwm0").
+.It Sy vpn
+Show VPN status. Accepts "yes" or "no".
+.El
+.Sh EXAMPLE CONFIGURATION
+An example configuration file might look like this:
+.Bd -literal
+logo=ゴンザロ
+date=yes
+cpu=yes
+bat=yes
+mem=yes
+load=yes
+net=yes
+winid=yes
+hostname=no
+interface=iwx0
+vpn=yes
+.Sh AUTHOR
+gonzalo <gonzalo@x61.sh>
