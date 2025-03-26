@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Gonzalo Rodriguez (gonzalo@x61.sh)
+ * Copyright (c) 2024-2025 Gonzalo Rodriguez (gonzalo@x61.sh)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -500,7 +500,7 @@ int main(int argc, const char *argv[])
                 if (argc == 2)
                         if (strcmp("-1", argv[1]) >= 0)
                                 return 0;
-                usleep(2000000);
+                usleep(500000);
         }
         return 0;
 }
