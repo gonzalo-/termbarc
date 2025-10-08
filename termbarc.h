@@ -39,16 +39,3 @@
 #define YELLOW      "\x1b[38;2;255;255;0m"
 #define RED         "\x1b[38;2;255;0;0m"
 #define RESET       "\x1b[0m"
-
-static char battery_percent[32];
-static char cpu_temp[32];
-static char cpu_base_speed[32];
-static char cpu_avg_speed[32];
-static char datetime[32];
-static char public_ip[MAX_IP_LENGTH];
-static char internal_ip[INET_ADDRSTRLEN];
-char vpn_status[16];
-char mem_info[32];
-char window_id[MAX_OUTPUT_LENGTH];
-double system_load[3];
-unsigned long long free_memory;
